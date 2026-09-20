@@ -1,0 +1,190 @@
+:root {
+  color-scheme: light;
+  --gray-950: #171717;
+  --gray-700: #525252;
+  --gray-500: #737373;
+  --gray-200: #e5e5e5;
+  --gray-100: #f5f5f5;
+  --white: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--gray-100);
+  color: var(--gray-950);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+table.fixed.one_column {
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table.fixed.one_column > tbody > tr > td {
+  padding: 0;
+}
+
+.part_rows_container {
+  width: 100%;
+}
+
+.wireframe-dashboard,
+.wireframe-dashboard-full-width,
+.wireframe-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wireframe-dashboard {
+  width: min(calc(100% - 2rem), 1600px);
+  margin-inline: auto;
+  padding: 0;
+  background: var(--white);
+}
+
+.wireframe-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+.part_rows_container > .wireframe-module {
+  width: 100%;
+}
+
+.wireframe-module {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 9rem;
+  padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 4rem);
+  background: var(--gray-100);
+  border: 2px dashed var(--gray-500);
+}
+
+.wireframe-height-compact {
+  min-height: 7rem;
+}
+
+.wireframe-height-standard {
+  min-height: 9rem;
+}
+
+.wireframe-height-medium {
+  min-height: 12rem;
+}
+
+.wireframe-height-tall {
+  min-height: 15rem;
+}
+
+.wireframe-height-extra-tall {
+  min-height: 19rem;
+}
+
+.wireframe-module[data-module-order="4"] {
+  min-height: 5rem;
+  padding-block: 0.75rem;
+}
+
+/* The DOM part owns the generated layout, matching Slate's rendered pattern. */
+.wireframe-module[data-module-order="132"] {
+  display: block;
+  width: 100%;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.wireframe-module[data-module-order="132"] > .wireframe-module-content {
+  width: 100%;
+  min-height: 9rem;
+  max-width: none;
+  padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 4rem);
+  background: var(--gray-100);
+  border: 2px dashed var(--gray-500);
+}
+
+.wireframe-module:nth-child(even) {
+  background: var(--gray-200);
+}
+
+.wireframe-module[data-module-status="Inactive"] {
+  opacity: 0.5;
+}
+
+.wireframe-module-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: min(100%, 72rem);
+  text-align: center;
+}
+
+.wireframe-module-name {
+  margin: 0;
+  color: var(--gray-700);
+  font-size: clamp(0.9rem, 2vw, 1.15rem);
+  font-weight: 700;
+}
+
+.wireframe-module-id {
+  margin: 0;
+  color: var(--gray-500);
+  font: 0.72rem/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+
+.wireframe-module-status {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.wireframe-module-status.is-active {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.wireframe-module-status.is-inactive {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.wireframe-error {
+  margin: 2rem;
+  padding: 1rem;
+  border: 2px dashed var(--gray-500);
+  text-align: center;
+}
+
+@media (max-width: 36rem) {
+  .wireframe-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wireframe-module {
+    min-height: 7rem;
+  }
+}
